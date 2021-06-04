@@ -203,7 +203,9 @@ public class FindCelebrityTest {
     }
 
     @Test
-    public void testFindCelebrityWhenThereAreThreePersonInTheTeamAndVerybodyKnowsSamAndMike() {
+    @DisplayName("Test to Find Celebrity When There Are Three Persons In The Team And Everybody"
+            + " knows Sam and Mike")
+    public void testFindCelebrityWhenThereAreThreePersonInTheTeamAndEverybodyKnowsSamAndMike() {
         // Arrange
         Team team = new Team();
 
