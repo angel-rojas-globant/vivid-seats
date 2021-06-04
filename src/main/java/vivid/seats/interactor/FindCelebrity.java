@@ -7,14 +7,14 @@ import vivid.seats.domain.dto.Team;
 
 /**
  * Service to find the celebrity in a Team
- * 
+ *
  * @author angel.rojas
  */
 public class FindCelebrity {
 
     /**
      * Find the celebrity in the team, if there is a celebrity
-     * 
+     *
      * @param team
      * @return
      */
@@ -34,16 +34,15 @@ public class FindCelebrity {
     private Boolean doTheWholeTeamKnowThePerson(List<Person> team, Person possibleCelebrity) {
         Boolean everyOneKnowsHimOrHer = Boolean.FALSE;
         for (Person teamMember : team) {
-            if (teamMember.equals(possibleCelebrity)) {
-                //Do not check the same person with the same person                
-            } else if (teamMember.getFriends().contains(possibleCelebrity)) {
-                everyOneKnowsHimOrHer = Boolean.TRUE;
-            } else {
-                everyOneKnowsHimOrHer = Boolean.FALSE;
-                break;
+            if (!teamMember.equals(possibleCelebrity)) {
+                if (teamMember.getFriends().contains(possibleCelebrity)) {
+                    everyOneKnowsHimOrHer = Boolean.TRUE;
+                } else {
+                    everyOneKnowsHimOrHer = Boolean.FALSE;
+                    break;
+                }
             }
         }
         return everyOneKnowsHimOrHer;
     }
-
 }

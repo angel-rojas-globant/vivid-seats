@@ -1,7 +1,7 @@
 package vivid.seats.domain.dto;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Representation of person
@@ -12,7 +12,7 @@ public class Person {
 
     private final String name;
 
-    private final List<Person> friends = new ArrayList<>();
+    private final Set<Person> friends;
 
     /**
      * Create a new person with a name
@@ -20,6 +20,7 @@ public class Person {
      * @param name
      */
     public Person(String name) {
+        this.friends = new HashSet<>();
         this.name = name;
     }
 
@@ -28,7 +29,7 @@ public class Person {
      *
      * @return
      */
-    public List<Person> getFriends() {
+    public Set<Person> getFriends() {
         return friends;
     }
 
@@ -47,9 +48,7 @@ public class Person {
      * @param newFriend
      */
     public void addFriend(Person newFriend) {
-        if (null != newFriend && this != newFriend) {
-            this.friends.add(newFriend);
-        }
+        this.friends.add(newFriend);
     }
 
 }

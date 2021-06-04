@@ -2,10 +2,17 @@ apply plugin: 'java'
 apply plugin: 'jacoco'
 apply plugin: 'application'
 
+sourceCompatibility = '1.8'
+
 repositories {
     mavenCentral()
 }
 
+test {
+    useJUnitPlatform()
+}
+
 dependencies {
-    testImplementation     'junit:junit:4.13'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
 }

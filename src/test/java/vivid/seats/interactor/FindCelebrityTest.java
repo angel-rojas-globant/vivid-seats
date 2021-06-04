@@ -1,8 +1,11 @@
 package vivid.seats.interactor;
 
 import java.util.Optional;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import vivid.seats.domain.dto.Person;
 import vivid.seats.domain.dto.Team;
 
@@ -15,9 +18,9 @@ public class FindCelebrityTest {
     /**
      * Test of findCelebrity method, of class FindCelebrity.
      */
-    @Test
+    @Test()
+    @DisplayName("Test to Find Celebrity When The Team Is Empty")
     public void testFindCelebrityWhenTheListIsEmpty() {
-        System.out.println("testFindCelebrityWhenTheListIsEmpty");
         // Arrange
         Team team = new Team();
         FindCelebrity instance = new FindCelebrity();
@@ -28,8 +31,8 @@ public class FindCelebrityTest {
     }
 
     @Test
-    public void testFindCelebrityWhenThereIsOnlyPersonInTheTeam() {
-        System.out.println("testFindCelebrityWhenThereIsOnlyPersonInTheTeam");
+    @DisplayName("Test to Find Celebrity When There Is Only One Person In The Team")
+    public void testFindCelebrityWhenThereIsOnlyOnePersonInTheTeam() {
         // Arrange
         Team team = new Team();
         Person mike = new Person("mike");
@@ -42,8 +45,8 @@ public class FindCelebrityTest {
     }
 
     @Test
+    @DisplayName("Test to Find Celebrity When There Are Two Persons In The Team And All Know Each Other")
     public void testFindCelebrityWhenThereAreTwoPersonInTheTeamAndAllKnowEachOther() {
-        System.out.println("testFindCelebrityWhenThereAreTwoPersonInTheTeamAndAllKnowEachOther");
         // Arrange
         Team team = new Team();
 
@@ -64,8 +67,8 @@ public class FindCelebrityTest {
     }
 
     @Test
+    @DisplayName("Test to Find Celebrity When There Are Two Persons In The Team And Mike Is The Celebrity")
     public void testFindCelebrityWhenThereAreTwoPersonInTheTeamAndMikeIsTheCelebrity() {
-        System.out.println("testFindCelebrityWhenThereAreTwoPersonInTheTeamAndMikeIsTheCelebrity");
         // Arrange
         Team team = new Team();
 
@@ -86,8 +89,8 @@ public class FindCelebrityTest {
     }
 
     @Test
+    @DisplayName("Test to Find Celebrity When There Are Three Persons In The Team And Know Each Other")
     public void testFindCelebrityWhenThereAreThreePersonInTheTeamAndAllKnowEachOther() {
-        System.out.println("testFindCelebrityWhenThereAreThreePersonInTheTeamAndAllKnowEachOther");
         // Arrange
         Team team = new Team();
 
@@ -117,8 +120,8 @@ public class FindCelebrityTest {
     }
 
     @Test
+    @DisplayName("Test to Find Celebrity When There Are Three Persons In The Team And Mike is The Celebrity")
     public void testFindCelebrityWhenThereAreThreePersonInTheTeamAndMikeIsTheCelebrity() {
-        System.out.println("testFindCelebrityWhenThereAreThreePersonInTheTeamAndMikeIsTheCelebrity");
         // Arrange
         Team team = new Team();
 
@@ -147,8 +150,9 @@ public class FindCelebrityTest {
     }
 
     @Test
-    public void testFindCelebrityWhenThereAreThreePersonInTheTeamAndNoEverybodyKnowsMike() {
-        System.out.println("testFindCelebrityWhenThereAreThreePersonInTheTeamAndNoEverybodyKnowsMike");
+    @DisplayName("Test to Find Celebrity When There Are Three Persons In The Team No One Know Mike, "
+            + "but the rest know each other")
+    public void testFindCelebrityWhenThereAreThreePersonInTheTeamAndNoOneKnowsMike() {
         // Arrange
         Team team = new Team();
 
@@ -173,8 +177,8 @@ public class FindCelebrityTest {
     }
 
     @Test
+    @DisplayName("Test to Find Celebrity When There Are Three Persons In The Team And Only One Knows Mike")
     public void testFindCelebrityWhenThereAreThreePersonInTheTeamAndOnlyOneKnowsMike() {
-        System.out.println("testFindCelebrityWhenThereAreThreePersonInTheTeamAndNoEverybodyKnowsMike");
         // Arrange
         Team team = new Team();
 
@@ -200,7 +204,6 @@ public class FindCelebrityTest {
 
     @Test
     public void testFindCelebrityWhenThereAreThreePersonInTheTeamAndVerybodyKnowsSamAndMike() {
-        System.out.println("testFindCelebrityWhenThereAreThreePersonInTheTeamAndVerybodyKnowsSamAndMike");
         // Arrange
         Team team = new Team();
 
